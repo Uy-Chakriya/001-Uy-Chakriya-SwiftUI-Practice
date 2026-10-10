@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		FA5D4A83307A730200125824 /* chakriya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = chakriya.app; path = /Users/macbook/Desktop/chakriya/build/Debug/chakriya.app; sourceTree = "<absolute>"; };
+		FA5D4AE2307AA6C300125824 /* chakriya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chakriya.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -51,6 +51,7 @@
 				FA5D4A85307A730200125824 /* chakriya */,
 				FA5D4A91307A732B00125824 /* Views */,
 				FA5D4AA5307A752000125824 /* Models */,
+				FA5D4AE2307AA6C300125824 /* chakriya.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,7 +80,7 @@
 			packageProductDependencies = (
 			);
 			productName = chakriya;
-			productReference = FA5D4A83307A730200125824 /* chakriya.app */;
+			productReference = FA5D4AE2307AA6C300125824 /* chakriya.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */

@@ -42,13 +42,13 @@ struct PlanView: View {
                                 
                                 if let recipe = store.plannedMeals[dayName] {
                                     HStack(spacing: 12) {
-                                        ZStack {
-                                            Color.gray.opacity(0.2)
-                                            Image(systemName: recipe.imageName)
-                                                .foregroundColor(.orange)
-                                        }
-                                        .frame(width: 36, height: 36)
-                                        .cornerRadius(6)
+                                        // Real image asset for planned meal row
+                                        Image(recipe.imageName)
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                            .frame(width: 36, height: 36)
+                                            .cornerRadius(6)
+                                            .clipped()
                                         
                                         Text(recipe.name)
                                             .fontWeight(.medium)
@@ -111,14 +111,13 @@ struct PlanView: View {
                                             store.assignMeal(day: firstEmpty, recipe: recipe)
                                         }
                                     }) {
-                                        ZStack {
-                                            Color.gray.opacity(0.2)
-                                            Image(systemName: recipe.imageName)
-                                                .font(.title3)
-                                                .foregroundColor(.orange)
-                                        }
-                                        .frame(width: 50, height: 50)
-                                        .cornerRadius(10)
+                                        // Real image asset in favorites bottom tray
+                                        Image(recipe.imageName)
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                            .frame(width: 50, height: 50)
+                                            .cornerRadius(10)
+                                            .clipped()
                                     }
                                 }
                             }
@@ -140,7 +139,6 @@ struct PlanView: View {
                         
                         Divider()
                         
-                        // Scrollable list of recipes inside the sheet
                         List(store.recipes) { recipe in
                             Button(action: {
                                 if let day = pickerDay {
@@ -149,10 +147,13 @@ struct PlanView: View {
                                 showingPickerSheet = false
                             }) {
                                 HStack(spacing: 16) {
-                                    Image(systemName: recipe.imageName)
-                                        .font(.title3)
-                                        .foregroundColor(.orange)
-                                        .frame(width: 30)
+                                    // Real image asset in recipe picker sheet
+                                    Image(recipe.imageName)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: 32, height: 32)
+                                        .cornerRadius(6)
+                                        .clipped()
                                     
                                     Text(recipe.name)
                                         .font(.body)

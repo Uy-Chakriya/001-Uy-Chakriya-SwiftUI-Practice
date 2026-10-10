@@ -19,13 +19,13 @@ struct FavoritesView: View {
                         ForEach(store.favorites) { recipe in
                             NavigationLink(value: recipe) {
                                 HStack(spacing: 12) {
-                                    ZStack {
-                                        Color.gray.opacity(0.2)
-                                        Image(systemName: recipe.imageName)
-                                            .foregroundColor(.orange)
-                                    }
-                                    .frame(width: 60, height: 60)
-                                    .cornerRadius(8)
+                                    // Displays the real custom image from Assets.xcassets
+                                    Image(recipe.imageName)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: 60, height: 60)
+                                        .cornerRadius(8)
+                                        .clipped()
                                     
                                     VStack(alignment: .leading, spacing: 4) {
                                         Text(recipe.name)

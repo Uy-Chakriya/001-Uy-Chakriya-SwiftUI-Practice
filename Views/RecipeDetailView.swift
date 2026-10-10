@@ -21,15 +21,13 @@ struct RecipeDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
-                // Hero Image with Favorite button overlay
+                // Hero banner header image
                 ZStack(alignment: .topTrailing) {
-                    ZStack {
-                        Color.gray.opacity(0.3)
-                        Image(systemName: liveRecipe.imageName)
-                            .font(.system(size: 80))
-                            .foregroundColor(.orange)
-                    }
-                    .frame(height: 220)
+                    Image(liveRecipe.imageName)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(height: 220)
+                        .clipped()
                     
                     Button(action: {
                         store.toggleFavorite(recipeID: liveRecipe.id)
@@ -61,7 +59,6 @@ struct RecipeDetailView: View {
                     
                     ServingControl(servings: $servings)
                     
-                    // Ingredients List with Count
                     HStack {
                         Text("Ingredients")
                             .font(.title2)
@@ -103,7 +100,6 @@ struct RecipeDetailView: View {
             }
         }
         .safeAreaInset(edge: .bottom) {
-            // Floating bottom actions matching mockup
             HStack(spacing: 12) {
                 Button(action: { showingPlanDialog = true }) {
                     Label("Add to plan", systemImage: "calendar")
